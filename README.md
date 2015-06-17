@@ -2,9 +2,9 @@ Maven structure plugin developed to print output of project files/modules/folder
 
 Plugin has 3 goals:
 
-  **printAll**: Prints all the files under build path
-  **printFolders**: Prints just folders under build path
-  **printModules**: Prinst all the modules under parent
+  1.**printAll**: Prints all the files under build path
+  2.**printFolders**: Prints just folders under build path
+  3.**printModules**: Prinst all the modules under parent
   
   
   **Usage**: 
