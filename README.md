@@ -1,14 +1,16 @@
-Maven structure plugin developed to print output of project files/modules/folders structure tree in ascii format. Plugin has 3 goals:
+Maven structure plugin developed to print output of project files/modules/folders structure tree in ascii format.
 
-  printAll: Prints all the files under build path
-  printFolders: Prints just folders under build path
-  printModules: Prinst all the modules under parent
+Plugin has 3 goals:
+
+  **printAll**: Prints all the files under build path
+  **printFolders**: Prints just folders under build path
+  **printModules**: Prinst all the modules under parent
   
   
-  Usage: 
+  **Usage**: 
    i.e. if you want to print all files you will need to update your pom file as below:
    
-   
+   ```
    <project>
    .....
     <build>
@@ -40,11 +42,11 @@ Maven structure plugin developed to print output of project files/modules/folder
 	</build>
 	.....
 	</project>
-	
+	```
 	then output will look like:
 	
 	
-	
+	```
 Project structure (all files):
 
 
@@ -84,13 +86,13 @@ Project structure (all files):
 				|
 				|__ .project
 	
-	
-	<inherited> tag tells to plugin dont do execution on modules under this project if there is any. If you dont have a multi module project you can remove this tag.
-	<ignore> tag specifies the files needs to be ignored in regex pattern. If you want to list all files you can remove this tag.
+	```
+	`**<inherited>**` tag tells to plugin dont do execution on modules under this project if there is any. If you dont have a multi module project you can remove this tag.
+	`**<ignore>**` tag specifies the files needs to be ignored in regex pattern. If you want to list all files you can remove this tag.
 	
 	
 	Listing the folders pretty similar:
-	
+	```
 	<build>
 		<plugins>
 
@@ -112,9 +114,9 @@ Project structure (all files):
 		</plugins>
 
 	</build>
-	
+	```
 	Then output will look like:
-	
+	```
 	mavenstructuretest
 				|
 				|
@@ -148,9 +150,10 @@ Project structure (all files):
 				\__ .settings
 				
 				
-	And I recommend using inherited tag if you want to list modules under the parent, example pom.xml for modules:
+				```
+	And I recommend using '**<inherited>**' tag if you want to list modules under the parent, example pom.xml for modules:
 	
-	
+	```
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -186,10 +189,10 @@ Project structure (all files):
 		<module>c</module>
 	</modules>
 </project>
-	
+```	
 	
 	And output:
-	
+	```
 	[INFO] --- structure-maven-plugin:0.0.1:printModules (default) @ test ---
 [INFO] 
 
@@ -217,7 +220,7 @@ Project structure (all modules):
 				 	|__ e
 				 	|
 				 	|__ f
-				 	
+				 	```
 	It is my first plugin so you can let me know if you face any issue. 
 	
    
