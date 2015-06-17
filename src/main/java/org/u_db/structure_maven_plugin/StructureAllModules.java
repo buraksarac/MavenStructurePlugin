@@ -83,6 +83,12 @@ public class StructureAllModules extends AbstractMojo {
 			if (hasRegexMatch(modules.get(i))) {
 				continue;
 			}
+			
+			if (!modules.get(i).getParent().getArtifactId()
+					.equalsIgnoreCase(project.getArtifactId())) {
+				continue;
+			}
+			
 			if (hasModules(modules.get(i))) {
 
 				str.append(NEW_LINE).append(lvl).append(VERTICAL_CONNECTOR).append(NEW_LINE).append(lvl).append(VERTICAL_CONNECTOR)
