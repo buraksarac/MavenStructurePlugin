@@ -14,7 +14,7 @@ Plugin has 3 goals:
    
    ```
    <project>
-   .....
+  
     <build>
 		<plugins>
 
@@ -44,7 +44,10 @@ Plugin has 3 goals:
 	</build>
 	.....
 	</project>
-	```
+	
+	
+	
+```
 	
 	
 	
