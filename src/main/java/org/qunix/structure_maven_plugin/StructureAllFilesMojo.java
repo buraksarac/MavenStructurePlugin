@@ -1,4 +1,4 @@
-package org.u_db.structure_maven_plugin;
+package org.qunix.structure_maven_plugin;
 
 /*
  * Copyright 2001-2005 The Apache Software Foundation.
@@ -24,7 +24,7 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.logging.Log;
 
 /**
- * Goal which touches a timestamp file.
+ * Goal to print all files
  *
  * @goal printAll
  * 
