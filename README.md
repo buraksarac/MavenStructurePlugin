@@ -165,7 +165,7 @@ Then output will look like:
 ```
 	
 	
-And I recommend using '**<inherited>**' tag if you want to list modules under the parent, example pom.xml for modules:
+And I recommend using 'inherited' tag if you want to list modules under the parent, example pom.xml for modules:
 	
 ```
 
