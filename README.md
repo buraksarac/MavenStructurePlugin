@@ -225,12 +225,6 @@ Project structure (all modules):
 				|
 				|__ b
 				|
-				|__ d
-				|
-				|__ e
-				|
-				|__ f
-				|
 				|
 				\__ c
 				 	|
