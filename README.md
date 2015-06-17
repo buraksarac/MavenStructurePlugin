@@ -19,7 +19,7 @@ Plugin has 3 goals:
 		<plugins>
 
 			<plugin>
-				<groupId>org.u-db</groupId>
+				<groupId>org.qunix</groupId>
 				<artifactId>structure-maven-plugin</artifactId>
 				<version>0.0.1</version>
 				<inherited>false</inherited> 
@@ -105,7 +105,7 @@ Listing the folders pretty similar:
 		<plugins>
 
 			<plugin>
-				<groupId>org.u-db</groupId>
+				<groupId>org.qunix</groupId>
 				<artifactId>structure-maven-plugin</artifactId>
 				<version>0.0.1</version>
 				<executions>
@@ -181,7 +181,7 @@ And I recommend using 'inherited' tag if you want to list modules under the pare
 		<plugins>
 
 			<plugin>
-				<groupId>org.u-db</groupId>
+				<groupId>org.qunix</groupId>
 				<artifactId>structure-maven-plugin</artifactId>
 				<version>0.0.1</version>
 				<inherited>false</inherited>
