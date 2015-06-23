@@ -122,13 +122,20 @@ Listing the folders pretty similar:
 					</ignores>
 				</configuration>
 			</plugin>
-		
 ```
-
-
+```
 Then output will look like:
 
 
+
+
+
+<<<<<<< HEAD
+Then output will look like:
+
+
+=======
+>>>>>>> de2e4f6250ead4acde17a92a923c9a4a6f48c616
 ```
 
 
