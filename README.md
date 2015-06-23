@@ -31,7 +31,7 @@ Plugin has 3 goals:
 						<phase>compile</phase>
 						<goals>
 							<goal>
-								folders
+								files
 							</goal>
 						</goals>
 					</execution>
@@ -174,7 +174,7 @@ Then output will look like:
 						<phase>compile</phase>
 						<goals>
 							<goal>
-								printModules
+								modules
 							</goal>
 						</goals>
 					</execution>
