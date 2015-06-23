@@ -127,6 +127,8 @@ Listing the folders pretty similar:
 
 
 Then output will look like:
+
+
 ```
 
 
@@ -134,33 +136,24 @@ Then output will look like:
 				|
 				|
 				\__ src
-				:	|
-				:	|
-				:	\__ test
-				:	:	|
-				:	:	|
-				:	:	\__ resources
-				:	:	|
-				:	:	|
-				:	:	\__ java
-				:	|
-				:	|
-				:	\__ main
-				:	 	|
-				:	 	|
-				:	 	\__ resources
-				:	 	|
-				:	 	|
-				:	 	\__ java
-				|
-				|
-				\__ target
-				:	|
-				:	|
-				:	\__ classes
-				|
-				|
-				\__ .settings
+				 	|
+				 	|
+				 	\__ test
+				 	:	|
+				 	:	|
+				 	:	|__ resources
+				 	:	|
+				 	:	|
+				 	:	|__ java
+				 	|
+				 	|
+				 	\__ main
+				 	 	|
+				 	 	|
+				 	 	|__ resources
+				 	 	|
+				 	 	|
+				 	 	|__ java
 				
 				
 ```

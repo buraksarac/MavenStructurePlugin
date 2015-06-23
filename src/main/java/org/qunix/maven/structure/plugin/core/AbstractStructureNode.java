@@ -33,6 +33,11 @@ public abstract class AbstractStructureNode<T> implements StructureNode<T> {
 	protected T content;
 	protected boolean detailEnabled;
 
+	/**
+	 * @param content
+	 * @param detailEnabled
+	 * @throws MojoFailureException
+	 */
 	public AbstractStructureNode(T content, boolean detailEnabled) throws MojoFailureException {
 		this.content = content;
 		this.childs = getChilds();
@@ -42,6 +47,9 @@ public abstract class AbstractStructureNode<T> implements StructureNode<T> {
 
 	
 	
+	/* (non-Javadoc)
+	 * @see org.qunix.maven.structure.plugin.interfaces.StructureNode#getName()
+	 */
 	public String getName() throws MojoFailureException {
 		if(!detailEnabled){
 			return getNodeName();
@@ -51,6 +59,9 @@ public abstract class AbstractStructureNode<T> implements StructureNode<T> {
 	}
 
 
+	/* (non-Javadoc)
+	 * @see org.qunix.maven.structure.plugin.interfaces.StructureNode#hasMoreChilds(int, java.lang.String[])
+	 */
 	public boolean hasMoreChilds(int index, String[] ignores) throws MojoFailureException {
 		if (isEmpty() || this.childs.length - 1 == index) {
 			return false;
@@ -65,6 +76,9 @@ public abstract class AbstractStructureNode<T> implements StructureNode<T> {
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see org.qunix.maven.structure.plugin.interfaces.StructureNode#isValid(java.lang.String[], java.lang.String[])
+	 */
 	public boolean isValid(String[] ignores,String... parentName) {
 		
 		if(!ArrayUtils.isEmpty(parentName) && !StringUtils.isEmpty(this.getParentName())){
@@ -88,14 +102,27 @@ public abstract class AbstractStructureNode<T> implements StructureNode<T> {
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see org.qunix.maven.structure.plugin.interfaces.StructureNode#isEmpty()
+	 */
 	public boolean isEmpty() throws MojoFailureException{
 		return ArrayUtils.isEmpty(this.childs);
 	}
 
+	/* (non-Javadoc)
+	 * @see org.qunix.maven.structure.plugin.interfaces.StructureNode#getNodeName()
+	 */
 	public abstract String getNodeName();
 
+	/**
+	 * @return
+	 * @throws MojoFailureException
+	 */
 	public abstract String getDetailedName()  throws MojoFailureException; 
 	
+	/* (non-Javadoc)
+	 * @see org.qunix.maven.structure.plugin.interfaces.Printable#getOutput(java.lang.String)
+	 */
 	public String getOutput(String levelStr) throws MojoFailureException {
 		
 		StringBuilder sb = new StringBuilder(StructureOutput.NEW_LINE.getValue())
@@ -116,6 +143,9 @@ public abstract class AbstractStructureNode<T> implements StructureNode<T> {
 		.toString();
 	}
 
+	/* (non-Javadoc)
+	 * @see org.qunix.maven.structure.plugin.interfaces.StructureNode#getHeader()
+	 */
 	public String getHeader() throws MojoFailureException {
 		return new StringBuilder(StructureOutput.NEW_LINE.getValue())
 		.append(StructureOutput.NEW_LINE.getValue())
