@@ -19,9 +19,9 @@ package org.qunix.maven.structure.plugin.core;
 import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang3.ArrayUtils;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
+import org.qunix.maven.structure.plugin.interfaces.StructureNode;
 
 /**
  * Module wrapper. Implementation of {@link AbstractStructureNode} for maven Modules goal
@@ -49,12 +49,12 @@ public class ModuleStructureNode extends AbstractStructureNode<MavenProject> {
 	/* (non-Javadoc)
 	 * @see org.qunix.maven.structure.plugin.interfaces.StructureNode#getChilds()
 	 */
-	public AbstractStructureNode[] getChilds() throws MojoFailureException {
+	public StructureNode<MavenProject>[] getChilds() throws MojoFailureException {
 		List<MavenProject> projects = content.getCollectedProjects();
 		if(CollectionUtils.isEmpty(projects)){
 			return null;
 		}
-		AbstractStructureNode[] childs = new AbstractStructureNode[projects.size()];
+		StructureNode<MavenProject>[] childs = new AbstractStructureNode[projects.size()];
 		
 		for (int i = 0; i < projects.size(); i++) {
 			childs[i] = new ModuleStructureNode(projects.get(i), detailEnabled);

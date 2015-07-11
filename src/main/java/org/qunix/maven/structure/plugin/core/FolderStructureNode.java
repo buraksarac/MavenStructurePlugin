@@ -20,6 +20,7 @@ import java.io.File;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.maven.plugin.MojoFailureException;
+import org.qunix.maven.structure.plugin.interfaces.StructureNode;
 
 /**
  * Folder wrapper. Implementation of {@link AbstractStructureNode} for maven Folders goal
@@ -56,14 +57,14 @@ public class FolderStructureNode extends FileStructureNode {
 	/* (non-Javadoc)
 	 * @see org.qunix.maven.structure.plugin.core.FileStructureNode#getChilds()
 	 */
-	public AbstractStructureNode[] getChilds() throws MojoFailureException {
+	public StructureNode<File>[] getChilds() throws MojoFailureException {
 
 		File[] files = content.listFiles();
 		
 		if(ArrayUtils.isEmpty(files)){
 			return null;
 		}
-		AbstractStructureNode[] childs = new AbstractStructureNode[files.length];
+		StructureNode<File>[] childs = new AbstractStructureNode[files.length];
 		for (int i = 0; i < files.length; i++) {
 			childs[i] = new FolderStructureNode(files[i], detailEnabled);
 		}

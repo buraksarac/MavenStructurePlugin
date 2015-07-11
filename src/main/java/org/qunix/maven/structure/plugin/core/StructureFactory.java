@@ -21,6 +21,7 @@ import java.io.File;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
 import org.qunix.maven.structure.plugin.core.types.StructureType;
+import org.qunix.maven.structure.plugin.interfaces.StructureNode;
 
 /**
  * Factory class to return right instance by the given type
@@ -40,7 +41,7 @@ public class StructureFactory {
 	 * @throws MojoFailureException
 	 */
 	@SuppressWarnings("rawtypes")
-	public static final AbstractStructureNode getStructure(StructureType type, Object parent, boolean detailed) throws MojoFailureException {
+	public static final StructureNode getStructure(StructureType type, Object parent, boolean detailed) throws MojoFailureException {
 
 		if (type.equals(StructureType.MAVEN_MODULE)) {
 

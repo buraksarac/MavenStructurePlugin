@@ -25,6 +25,7 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
 import org.qunix.maven.structure.plugin.core.types.StructureOutput;
 import org.qunix.maven.structure.plugin.core.types.StructureType;
+import org.qunix.maven.structure.plugin.interfaces.StructureNode;
 
 /**
  * Builder class to generate ascii tree from {@link AbstractStructureNode} 
@@ -54,7 +55,7 @@ public class StructureBuilder {
 		}
 
 		//get wrapped node so we can process
-		AbstractStructureNode parent = StructureFactory.getStructure(type, root, detailed);
+		StructureNode<?> parent = StructureFactory.getStructure(type, root, detailed);
 		
 		//get header (project structure...)
 		StringBuilder outputStr = new StringBuilder(parent.getHeader());
@@ -96,11 +97,11 @@ public class StructureBuilder {
 	 * @return final output
 	 * @throws MojoFailureException
 	 */
-	private StringBuilder buildChilds(AbstractStructureNode parent, String lvlStr, StringBuilder output, String[] ignores)
+	private StringBuilder buildChilds(StructureNode<?> parent, String lvlStr, StringBuilder output, String[] ignores)
 			throws MojoFailureException {
 
 		//get childs
-		AbstractStructureNode[] childs = (AbstractStructureNode[]) parent.getChilds();
+		StructureNode<?>[] childs = (AbstractStructureNode[]) parent.getChilds();
 
 		//check if there is any 
 		if (ArrayUtils.isEmpty(childs)) {
@@ -111,7 +112,7 @@ public class StructureBuilder {
 		for (int i = 0; i < childs.length; i++) {
 			
 			//shortcut
-			AbstractStructureNode child = childs[i];
+			StructureNode<?> child = childs[i];
 
 			//this method does regex validation all goals and parent check just for modules
 			if (!child.isValid(ignores, parent.getNodeName())) {

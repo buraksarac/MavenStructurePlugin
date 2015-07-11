@@ -28,7 +28,7 @@ public interface StructureNode<N> extends Printable, Serializable {
 	 * @return list of {@link AbstractStructureNode}
 	 * @throws MojoFailureException
 	 */
-	public abstract AbstractStructureNode[] getChilds()  throws MojoFailureException;
+	public abstract StructureNode<N>[] getChilds()  throws MojoFailureException;
 	
 	/**
 	 * Utility method for below case:</br>
