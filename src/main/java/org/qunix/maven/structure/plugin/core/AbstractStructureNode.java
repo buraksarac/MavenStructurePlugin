@@ -29,7 +29,7 @@ public abstract class AbstractStructureNode<T> implements StructureNode<T> {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	protected AbstractStructureNode[] childs;
+	protected StructureNode<T>[] childs;
 	protected T content;
 	protected boolean detailEnabled;
 

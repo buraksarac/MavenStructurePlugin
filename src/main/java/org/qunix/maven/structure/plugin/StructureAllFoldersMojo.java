@@ -16,64 +16,23 @@ package org.qunix.maven.structure.plugin;
  * limitations under the License.
  */
 
-import java.io.File;
-
-import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
+import org.apache.maven.plugins.annotations.Mojo;
 import org.qunix.maven.structure.plugin.core.StructureBuilder;
 import org.qunix.maven.structure.plugin.core.types.StructureType;
 
 /**
  * Goal to print all folders
- *
- * @goal folders
- * 
- * @phase process-sources
  */
-
-public class StructureAllFoldersMojo extends AbstractMojo {
-	/**
-	 * Location of the file.
-	 * 
-	 * @parameter expression="${project.basedir}"
-	 * 
-	 */
-	private File rootDirectory;
-
-	/**
-	 * Regex pattern to ignore files.
-	 * 
-	 * @parameter alias="ignores"
-	 * 
-	 */
-
-	private String[] mIgnores;
-
-	/**
-	 * @parameter
-	 */
-	private boolean detailed;
-
-	/**
-	 * @parameter
-	 */
-	private File outputDirectory;
-
+@Mojo(name = "folders", defaultPhase = LifecyclePhase.PROCESS_SOURCES)
+public class StructureAllFoldersMojo extends AbstractStructureMojo {
 	public void execute() throws MojoExecutionException, MojoFailureException {
 
 		StructureBuilder builder = new StructureBuilder();
 
 		builder.build(rootDirectory, StructureType.DIRECTORY, detailed, getLog(), mIgnores, outputDirectory);
 
-	}
-
-	/**
-	 * This list will be injected by maven
-	 * 
-	 * @param ignores
-	 */
-	public void setIgnores(String[] ignores) {
-		mIgnores = ignores;
 	}
 }

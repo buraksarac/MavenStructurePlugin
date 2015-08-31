@@ -6,7 +6,7 @@ Plugin has 3 goals:
   
   2.**folders**: Prints just folders under build path
   
-  3.**modules**: Prinst all the modules under parent
+  3.**modules**: Prints all the modules under parent
   
 
     
@@ -93,7 +93,7 @@ then output will look like:
 				 	 	|__ java
 	
 ```
-`<inherited>` tag tells to plugin dont do execution on modules under this project if there is any. If you dont have a multi module project you can remove this tag.
+`<inherited>` tag tells to plugin don't do execution on modules under this project if there is any. If you don't have a multi module project you can remove this tag.
 `<ignore>` tag specifies the files needs to be ignored in regex pattern. If you want to list all files you can remove this tag.
 	
 	
@@ -219,7 +219,7 @@ And output:
 
  You can also print output into a file by using `<outputDirectory>` tag in`<configuration>` (i.e. output.txt) so output will be saved into project root directory/output.txt. If you want to print details then set `<detailed>true</detailed>`. If you have enabled details then node names will be as following:
  
-   **Modules**:group id:artifact id: version: packaging
+   **Modules**: group id : artifact id : version : packaging
    **Files**: File name + hidden +   size +  last modified
    **Folders**: Folder name + hidden + quantity of files + last modified  
    
