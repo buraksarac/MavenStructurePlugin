@@ -30,67 +30,69 @@ import org.qunix.maven.structure.plugin.interfaces.StructureNode;
  */
 public class ModuleStructureNode extends AbstractStructureNode<MavenProject> {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+        /**
+         *
+         */
+        private static final long serialVersionUID = 1L;
 
-	/**
-	 * Default constructor
-	 * 
-	 * @param content
-	 * @param detailEnabled
-	 * @throws MojoFailureException
-	 */
-	public ModuleStructureNode(MavenProject content, boolean detailEnabled) throws MojoFailureException {
-		super(content, detailEnabled);
-	}
+        /**
+         * Default constructor
+         *
+         * @param content
+         * @param detailEnabled
+         * @throws MojoFailureException
+         */
+        public ModuleStructureNode(MavenProject content, boolean detailEnabled) throws MojoFailureException {
+                super(content, detailEnabled);
+        }
 
-	/* (non-Javadoc)
-	 * @see org.qunix.maven.structure.plugin.interfaces.StructureNode#getChilds()
-	 */
-	public StructureNode<MavenProject>[] getChilds() throws MojoFailureException {
-		List<MavenProject> projects = content.getCollectedProjects();
-		if(CollectionUtils.isEmpty(projects)){
-			return null;
-		}
-		StructureNode<MavenProject>[] childs = new AbstractStructureNode[projects.size()];
-		
-		for (int i = 0; i < projects.size(); i++) {
-			childs[i] = new ModuleStructureNode(projects.get(i), detailEnabled);
-		}
-		
-		return childs;
-	}
+        /* (non-Javadoc)
+         * @see org.qunix.maven.structure.plugin.interfaces.StructureNode#getChilds()
+         */
+        public StructureNode<MavenProject>[] getChilds() throws MojoFailureException {
+                List<MavenProject> projects = content.getCollectedProjects();
+                if(CollectionUtils.isEmpty(projects)){
+                        return null;
+                }
+                StructureNode<MavenProject>[] childs = new AbstractStructureNode[projects.size()];
+
+                for (int i = 0; i < projects.size(); i++) {
+                        childs[i] = new ModuleStructureNode(projects.get(i), detailEnabled);
+                }
+
+                return childs;
+        }
 
 
-	/* (non-Javadoc)
-	 * @see org.qunix.maven.structure.plugin.core.AbstractStructureNode#getNodeName()
-	 */
-	@Override
-	public String getNodeName() {
-		return content.getArtifactId();
-	}
+        /* (non-Javadoc)
+         * @see org.qunix.maven.structure.plugin.core.AbstractStructureNode#getNodeName()
+         */
+        @Override
+        public String getNodeName() {
+                return content.getArtifactId();
+        }
 
-	/* (non-Javadoc)
-	 * @see org.qunix.maven.structure.plugin.core.AbstractStructureNode#getDetailedName()
-	 */
-	@Override
-	public String getDetailedName() {
-		StringBuilder sb = new StringBuilder(content.getGroupId());
-		sb.append(" : ").append(content.getArtifactId());
-		sb.append(" (").append(content.getVersion()).append(") ");
-		sb.append(content.getPackaging());
-		
-		return sb.toString();
+        /* (non-Javadoc)
+         * @see org.qunix.maven.structure.plugin.core.AbstractStructureNode#getDetailedName()
+         */
+        @Override
+        public String getDetailedName() {
+                StringBuilder sb = new StringBuilder(content.getGroupId());
+                sb.append(" : ").append(content.getArtifactId());
+                sb.append(" (").append(content.getVersion()).append(") ");
+                sb.append(content.getPackaging());
 
-	}
+                return sb.toString();
 
-	/* (non-Javadoc)
-	 * @see org.qunix.maven.structure.plugin.interfaces.StructureNode#getParentName()
-	 */
-	public String getParentName() {
-		return content.getParent().getArtifactId();
-	}
+        }
+
+        /* (non-Javadoc)
+         * @see org.qunix.maven.structure.plugin.interfaces.StructureNode#getParentName()
+         */
+        public String getParentName() {
+                MavenProject parent = content.getParent();
+                if (parent==null) return null;
+                return parent.getArtifactId();
+        }
 
 }
